@@ -7,7 +7,7 @@ interface MoviesResponse {
 
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
-export async function fetchMovies(query: string): Promise<Movie[]> {
+async function fetchMovies(query: string): Promise<Movie[]> {
   const response = await axios.get<MoviesResponse>(BASE_URL, {
     params: {
       query,
@@ -19,3 +19,5 @@ export async function fetchMovies(query: string): Promise<Movie[]> {
 
   return response.data.results;
 }
+
+export default fetchMovies;
